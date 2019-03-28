@@ -48,3 +48,5 @@ include (
         'grails-gradle-plugin',
         'grails-gradle-model'
 )
+
+apply from: "gradle/buildCache.gradle"

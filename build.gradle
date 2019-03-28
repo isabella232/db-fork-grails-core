@@ -15,9 +15,11 @@ buildscript {
         classpath "io.github.groovylang.groovydoc:groovydoc-gradle-plugin:1.0.1"
         classpath "javax.xml.bind:jaxb-api:$jaxbVersion"
         classpath "com.sun.xml.bind:jaxb-impl:$jaxbVersion"
+        classpath "com.gradle:build-scan-plugin:2.2.1"
     }
 }
 
+apply plugin: com.gradle.scan.plugin.BuildScanPlugin
 apply plugin: 'idea'
 
 ext {
@@ -568,4 +570,9 @@ sdkman {
     version = project.version
     url = "https://github.com/grails/grails-core/releases/download/v${project.version}/grails-${project.version}.zip"
     hashtag = "#grailsfw"
+}
+
+buildScan {
+    server = System.getenv("GE_URL")
+    publishAlways()
 }
