@@ -575,4 +575,5 @@ sdkman {
 buildScan {
     server = System.getenv("GE_URL")
     publishAlways()
+    captureTaskInputFiles = true
 }
